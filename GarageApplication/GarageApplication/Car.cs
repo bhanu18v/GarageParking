@@ -20,10 +20,10 @@ namespace GarageApplication
             Fuel_Type = fut;
         }
 
-        public override string PrintVehicle()
-        {
-            return base.PrintVehicle() + "\n Its a " + Fuel_Type + GetType().Name;
-        }
+        //public override string PrintVehicle()
+        //{
+        //    return base.PrintVehicle() + "\n Its a " + Fuel_Type + GetType().Name;
+        //}
 
 
 

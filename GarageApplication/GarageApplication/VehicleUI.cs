@@ -32,7 +32,7 @@ namespace GarageApplication
                 {
                     case 1:
                         Console.WriteLine(" To Display the list of all parked vehicles ");
-                        Garage<Vehicle> garage = new Garage<Vehicle>(20);
+                      //  Garage<Vehicle> garage = new Garage<Vehicle>(20);
                         //    garage.addVehicle(new Vehicle { RegistrationNumber = "123", Color = "Red", Number_Of_Wheels = 4, ModelType = "Version001" });
                         Console.WriteLine("Vehicle added");
                         break;
@@ -48,13 +48,34 @@ namespace GarageApplication
                     case 5:
                         Console.WriteLine("Good Bye!");
                         return;
+                    case 6:
+                        Console.WriteLine(" Enter vehicle details ");
+
+                        
+                         
+                        //   Vehicle vehi = new Vehicle(regnr, color, wheels, model);
+                        break;
                     default:
                         Console.WriteLine("Invalid Input!");
                         break;
-
                 }
-
             }
+
+
         }
-     }
+
+            //public List<Vehicle> vehicles = new List<Vehicle>();
+    //    private List<Employee> list = new List<Employee>();
+        //public void AddVehicle(Vehicle vehicles)
+        //{
+        //    vehicles.Add(vehiccle);
+
+
+
+        //}
+       
+    }
+
 }
+
+

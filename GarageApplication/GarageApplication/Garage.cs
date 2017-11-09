@@ -7,44 +7,73 @@ using System.Threading.Tasks;
 
 namespace GarageApplication
 {
-   
-        class Garage<T> : IEnumerable<T> where T : Vehicle
+
+
+    //    private static int parkingNumber = 0;
+
+
+    //    public Garage(int maxCapacity)
+    //    {
+    //        this.Id = parkingNumber++;
+    //        this.Name = name;
+    //        this.Vehicle = new List<T>();
+    //        this.Capacity = maxCapacity;
+    //    }
+
+
+    //public override string ToString()
+    //{
+    //    //return string.Format("{1, 30} {2, 3}", Id, Name, Vehicles.Count);
+    //    return string.Format(Name, Vehicle.Count, Capacity);
+    //}
+
+    class Garage<T> : IEnumerable<T> where T : Vehicle
+    {
+        public IEnumerator<T> GetEnumerator()
         {
-            public int ParkingNumber = 0;
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public List<T> Vehicles { get; set; }
-            private int capacity;
-            private string name;
-            public int Capacity { get; set; }
+            throw new NotImplementedException();
+        }
 
-            private static int parkingNumber = 0;
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+        public int Capacity { get; set; }
 
+        public Garage(int maxCapacity)
+        {
+            Capacity = maxCapacity;
+        }
 
-            public Garage(int maxCapacity)
+        public List<Vehicle> vechiclelist = new List<Vehicle>();
+
+        public void Add(Vehicle vehicle)
+        {
+            vechiclelist.Add(vehicle);
+        }
+
+        public void List()
+        {
+            foreach (var vehicle in vechiclelist)
             {
-                this.Id = parkingNumber++;
-                this.Name = name;
-                this.Vehicles = new List<T>();
-                this.Capacity = maxCapacity;
+
+                Console.WriteLine(vehicle);
             }
 
-
-            public override string ToString()
-            {
-                //return string.Format("{1, 30} {2, 3}", Id, Name, Vehicles.Count);
-                return string.Format(Name, Vehicles.Count, Capacity);
-            }
+        }
 
 
-            public IEnumerator<T> GetEnumerator()
-            {
-                throw new NotImplementedException();
-            }
+        //public override string ToString()
+        //{
+        //    var output = "";
 
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                throw new NotImplementedException();
-            }
+        //    foreach (var vehicle in vechiclelist)
+        //    {
+        //        output += vehicle + "\n";
+
+        //    }
+        //    return output;
+
+        //}
     }
-}
+ }

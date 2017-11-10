@@ -39,16 +39,19 @@ namespace GarageApplication
             throw new NotImplementedException();
         }
         public int Capacity { get; set; }
-
+        public string GarageName { get; set; }
+        public int parkingNumber = 0;
+       
         public Garage(int maxCapacity)
         {
-            Capacity = maxCapacity;
+             Capacity = maxCapacity;
+            parkingNumber = parkingNumber++;
         }
 
         public List<Vehicle> vechiclelist = new List<Vehicle>();
 
         public void Add(Vehicle vehicle)
-        {
+            {
             vechiclelist.Add(vehicle);
         }
 
@@ -61,6 +64,21 @@ namespace GarageApplication
             }
 
         }
+       
+
+        public override string ToString()
+        {
+            return "GarageName: " + GarageName + ", Capacity: " + Capacity;
+        }
+        //public virtual string Stats()
+        //{
+        //    return "Species: " + Species +
+        //        "\nAge: " + Age + "\nIs Carnivore:" + IsCarnivore;
+        //}
+
+
+
+
 
 
         //public override string ToString()
@@ -76,4 +94,4 @@ namespace GarageApplication
 
         //}
     }
- }
+}

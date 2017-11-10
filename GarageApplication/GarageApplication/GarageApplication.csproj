@@ -48,6 +48,7 @@
     <Compile Include="Bus.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="Garage.cs" />
+    <Compile Include="GarageHandler.cs" />
     <Compile Include="MotorCycle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

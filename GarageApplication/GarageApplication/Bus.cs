@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GarageApplication
 {
-    class Bus:Vehicle
+    public class Bus:Vehicle
     {
 
         private int no_Of_Seats;
@@ -16,15 +16,19 @@ namespace GarageApplication
             set { No_Of_Seats = value; }
         }
 
-        public Bus(string reg, string col, int now, string tof, int nos) : base(reg, col, now, tof)
+        public Bus(string regnum, string col, int now, string tof, int nos) : base(regnum, col, now, tof)
         {
             No_Of_Seats = nos;
         }
 
-        //public override string PrintVehicle()
-        //{
-        //    return base.PrintVehicle() + "\n The Bus contains" + No_Of_Seats + "seats\n";
-        //}
+        public Bus()
+        {
+        }
+
+        public override string PrintVehicle()
+        {
+            return base.PrintVehicle() + "\n The Bus contains" + No_Of_Seats + "seats\n";
+        }
 
     }
 }

@@ -13,21 +13,21 @@ namespace GarageApplication
         public string Color { get; set; }
         public int No_Of_Wheels { get; set; }
         public string ModelType { get; set; }
-        //public Vehicle()
-        //{
-
-        //}
-       
-        public Vehicle(string registrationNumber, string color, int no_Of_Wheels, string modelType)
+        public Vehicle()
         {
-            RegistrationNumber = registrationNumber;
+
+        }
+
+        public Vehicle(string regnum, string color, int no_Of_Wheels, string modelType)
+        {
+            RegistrationNumber = regnum;
             Color = color;
             No_Of_Wheels = no_Of_Wheels;
             ModelType = modelType;
 
         }
 
-        public override string ToString()
+        public virtual string PrintVehicle()
         {
             return "RegistrationNumber: " + RegistrationNumber + ", Color: " + Color+", Number of Wheels"+ No_Of_Wheels+", Model Type "+ ModelType;
         }

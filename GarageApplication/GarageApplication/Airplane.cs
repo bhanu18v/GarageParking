@@ -14,17 +14,21 @@ namespace GarageApplication
             get { return noOfengines; }
             set { NoOfEngines = value; }
         }
+       
 
-        public Airplane(string reg, string col, int now, string tof, int noe) : base(reg, col, now, tof)
+        public Airplane(string regnum, string col, int now, string tof, int noe) : base(regnum, col, now, tof)
         {
             NoOfEngines = noe;
         }
 
+        public Airplane()
+        {
+        }
 
-        //public override string PrintVehicle()
-        //{
-        //    return base.PrintVehicle() + "\n The" + GetType().Name + "contains" + NoOfEngines + " Engines ";
-        //}
+        public override string PrintVehicle()
+        {
+            return base.PrintVehicle() + "\n The" + GetType().Name + "contains" + NoOfEngines + " Engines ";
+        }
 
 
 

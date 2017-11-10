@@ -14,16 +14,20 @@ namespace GarageApplication
             get { return length; }
             set { length = value; }
         }
-        public Boat(string reg, string col, int now, string tof, int len) : base(reg, col, now, tof)
+        public Boat(string regnum, string col, int now, string tof, int len) : base(regnum, col, now, tof)
         {
             
             Length = len;
         }
 
-        //public override string PrintVehicle()
-        //{
-        //    return base.PrintVehicle() + "\n The Length Of the Boat is" + Length;
-        //}
+        public Boat()
+        {
+        }
+
+        public override string PrintVehicle()
+        {
+            return base.PrintVehicle() + "\n The Length Of the Boat is" + Length;
+        }
 
     }
 }

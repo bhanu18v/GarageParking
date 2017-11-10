@@ -6,7 +6,33 @@ using System.Threading.Tasks;
 
 namespace GarageApplication
 {
-    class Motorcycle
+    public class Motorcycle:Vehicle
     {
+        private int cylindervol;
+
+        public int Cylindervol
+        {
+             get {return  cylindervol; }
+             set { value = cylindervol ; }
+        }
+
+        public Motorcycle(string regnum, string col, int now, string tof, int cylinvol) : base(regnum, col, now, tof)
+        {
+
+            Cylindervol = cylinvol;
+        }
+
+        public Motorcycle()
+        {
+        }
+
+        public override string PrintVehicle()
+        {
+            return base.PrintVehicle() + "\n The Cylinder Volume of the MotorCycle is:" + Cylindervol;
+        }
+
+
+
+
     }
 }

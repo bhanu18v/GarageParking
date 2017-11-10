@@ -15,15 +15,19 @@ namespace GarageApplication
             set { Fuel_Type = value; }
         }
 
-        public Car(string reg, string col, int now, string tof, string fut) : base(reg, col, now, tof)
+        public Car(string regnum, string col, int now, string tof, string fut) : base(regnum, col, now, tof)
         {
             Fuel_Type = fut;
         }
 
-        //public override string PrintVehicle()
-        //{
-        //    return base.PrintVehicle() + "\n Its a " + Fuel_Type + GetType().Name;
-        //}
+        public Car()
+        {
+        }
+
+        public override string PrintVehicle()
+        {
+            return base.PrintVehicle() + "\n Its a " + Fuel_Type + GetType().Name;
+        }
 
 
 

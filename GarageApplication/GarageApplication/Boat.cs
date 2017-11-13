@@ -8,22 +8,29 @@ namespace GarageApplication
 {
     public class Boat:Vehicle
     {
-        private int length;
-        public int Length
+        private float length;
+        public float Length
         {
-            get { return length; }
-            set { length = value; }
-        }
-        public Boat(string reg, string col, int now, string tof, int len) : base(reg, col, now, tof)
-        {
-            
-            Length = len;
+            get
+            {
+                return length;
+            }
+            set
+            {
+                length = value;
+            }
         }
 
-        //public override string PrintVehicle()
-        //{
-        //    return base.PrintVehicle() + "\n The Length Of the Boat is" + Length;
-        //}
+        public Boat(string registrationPlate, string color, int wheelCount, float length)
+            : base(registrationPlate, color,wheelCount)
+        {
+            Length = length;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Boat :{0}{1}{0}{2} ft", System.Environment.NewLine, base.ToString(), Length);
+        }
 
     }
 }

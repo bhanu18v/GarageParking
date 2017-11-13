@@ -65,13 +65,15 @@ namespace GarageApplication
             return printedList;
         }
 
+     
+
         public string ListVehicleTypes()
         {
             var types = vehicles
                 .Where(v => v != null)
                 .GroupBy(v => v.GetType().Name)
                 .Select(v => new
-            {
+                {
                     Count = v.Count(),
                     Vehicle = v.Key
                 })
@@ -90,29 +92,6 @@ namespace GarageApplication
                 }
                 printedList += $"{type.Count} {type.Vehicle}{s} {Environment.NewLine}";
             }
-
-        }
-
-        public override string ToString()
-        {
-            return "GarageName: " + GarageName + ", Capacity: " + Capacity;
-        }
-
-        public void Listof(T input)
-        {
-            if (count < capacity)
-            {
-
-            }
-        }
-
-
-
-
-
-
-
-
 
             return printedList;
         }
@@ -139,4 +118,4 @@ namespace GarageApplication
             return GetEnumerator();
         }
     }
- }
+}

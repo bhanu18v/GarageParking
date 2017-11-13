@@ -8,31 +8,16 @@ namespace GarageApplication
 {
     public class Motorcycle:Vehicle
     {
-        private int cylindervol;
+        public float CylinderVolume { get; set; }
 
-        public int Cylindervol
+        public Motorcycle(string registrationNumber, string color, int wheelCount,float cylinderVolume)
+            : base(registrationNumber, color, wheelCount)
         {
-             get {return  cylindervol; }
-             set { value = cylindervol ; }
+            CylinderVolume = cylinderVolume;
         }
 
-        public Motorcycle(string regnum, string col, int now, string tof, int cylinvol) : base(regnum, col, now, tof)
-        {
-
-            Cylindervol = cylinvol;
-        }
-
-        public Motorcycle()
-        {
-        }
-
-        public override string PrintVehicle()
-        {
-            return base.PrintVehicle() + "\n The Cylinder Volume of the MotorCycle is:" + Cylindervol;
-        }
-
-
-
-
+        public override string ToString()
+    {
+            return string.Format("Motorcycle:{0}{1}{0}{2} cc", System.Environment.NewLine, base.ToString(), CylinderVolume); }
     }
 }

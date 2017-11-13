@@ -7,38 +7,88 @@ using System.Threading.Tasks;
 
 namespace GarageApplication
 {
-
-
-
-   public class Garage<T> : IEnumerable<T> where T : Vehicle
+    public class Garage<T> : IEnumerable<T> where T : Vehicle
     {
+        public Vehicle[] vehicles;
 
-        private int count;
-        public string GarageName { get; set; }
-        private int capacity;
-        public int Count { get; set; }
+        public int Capacity { get; }
+        public int Count { get; private set; }
 
-        public int Capacity { get; set; }
-
-        public Garage(int maxCapacity)
+        public Garage(int capacity)
         {
-            Capacity=maxCapacity;
+            Capacity = capacity;
+            vehicles = new T[capacity];
         }
 
-        public List<Vehicle> vechiclelist = new List<Vehicle>();
-
-        
-        public void Add(Vehicle vehicle)
+        public bool Add(T vehicle)
         {
-            vechiclelist.Add(vehicle);
-        }
+            if (Count >= Capacity) return false;
 
-        public void List()
-        {
-            foreach (var vehicle in vechiclelist)
+            for (int i = 0; i < Capacity; i++)
             {
+                if (vehicles[i] == null)
+                {
+                    vehicles[i] = vehicle;
+                    Count++;
+                    return true;
+                }
+            }
 
-                Console.WriteLine(vehicle);
+            return false;
+        }
+
+        public T Remove(T vehicle)
+        {
+            if (vehicle == null) return null;
+
+            for (int i = 0; i < Capacity; i++)
+            {
+                if (vehicle.Equals(vehicles[i]))
+                {
+                    vehicles[i] = null;
+                    Count--;
+                    return vehicle;
+                }
+            }
+            return null;
+        }
+
+        public bool IsFull() => Count == Capacity;
+
+        public string ListAllParkedVehicles()
+        {
+            var printedList = $"Listing all {Count} parked vehicles {Environment.NewLine}";
+
+            foreach (var vehicle in vehicles.Where(v => v != null))
+                printedList += Environment.NewLine + vehicle.ToString() + Environment.NewLine;
+
+            return printedList;
+        }
+
+        public string ListVehicleTypes()
+        {
+            var types = vehicles
+                .Where(v => v != null)
+                .GroupBy(v => v.GetType().Name)
+                .Select(v => new
+            {
+                    Count = v.Count(),
+                    Vehicle = v.Key
+                })
+                .OrderBy(x => x.Vehicle)
+                .OrderByDescending(x => x.Count);
+
+            var printedList = $"{Count} vehicles is stored in the garage {Environment.NewLine}{Environment.NewLine}";
+
+            foreach (var type in types)
+            {
+                string s = "";
+                if (type.Count > 1)
+                {
+                    if (type.Vehicle == "Bus") s = "es";
+                    else s = "s";
+                }
+                printedList += $"{type.Count} {type.Vehicle}{s} {Environment.NewLine}";
             }
 
         }
@@ -64,54 +114,29 @@ namespace GarageApplication
 
 
 
+            return printedList;
+        }
 
+        public Vehicle SearchMatchingVehicle(string registrationNumber)
+        {
+            var match = vehicles
+                .Where(v => v != null)
+                .Where(v => v.RegistrationNumber.Equals(registrationNumber.ToUpperInvariant()))
+                .FirstOrDefault();
 
+            return match;
+        }
 
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            foreach (var vehicle in vehicles.Where(v => v != null))
+                yield return (T)vehicle;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
-
-
-
-
-
-
-        //public override string ToString()
-        //{
-        //    var output = "";
-
-        //    foreach (var vehicle in vechiclelist)
-        //    {
-        //        output += vehicle + "\n";
-
-        //    }
-        //    return output;
-
-        //}
-
-        //    private static int parkingNumber = 0;
-
-
-        //    public Garage(int maxCapacity)
-        //    {
-        //        this.Id = parkingNumber++;
-        //        this.Name = name;
-        //        this.Vehicle = new List<T>();
-        //        this.Capacity = maxCapacity;
-        //    }
-
-
-        //public override string ToString()
-        //{
-        //    //return string.Format("{1, 30} {2, 3}", Id, Name, Vehicles.Count);
-        //    return string.Format(Name, Vehicle.Count, Capacity);
-        //}
     }
-}
+ }

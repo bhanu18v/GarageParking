@@ -8,25 +8,17 @@ namespace GarageApplication
 {
     public class Car:Vehicle
     {
-        private string fuel_type;
-        public string Fuel_Type
+        public string Fuel { get; set; }
+
+        public Car(string registrationPlate, string color, int wheelCount,string fuelType)
+            : base(registrationPlate, color, wheelCount)
         {
-            get { return fuel_type; }
-            set { Fuel_Type = value; }
+            Fuel = fuelType;
         }
 
-        public Car(string regnum, string col, int now, string tof, string fut) : base(regnum, col, now, tof)
+        public override string ToString()
         {
-            Fuel_Type = fut;
-        }
-
-        public Car()
-        {
-        }
-
-        public override string PrintVehicle()
-        {
-            return base.PrintVehicle() + "\n Its a " + Fuel_Type + GetType().Name;
+            return string.Format("Car:{0}{1}{0}Engine runs on {2}", System.Environment.NewLine, base.ToString(), Fuel);
         }
 
 

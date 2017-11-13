@@ -21,7 +21,7 @@ namespace GarageApplication
         public override string ToString()
         {
             var seats = Seats > 1 ? "seats" : "seat";
-            return string.Format("Bus :{0}{1}{2} {3}",
+            return string.Format("Bus :{0}{1}{0}{2} {3}",
                 "\n",
                 base.ToString(), Seats, seats);
         }

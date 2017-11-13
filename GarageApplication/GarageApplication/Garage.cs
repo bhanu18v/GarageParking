@@ -9,7 +9,7 @@ namespace GarageApplication
 {
     public class Garage<T> : IEnumerable<T> where T : Vehicle
     {
-        public Vehicle[] vehicles;
+        private Vehicle[] vehicles;
 
         public int Capacity { get; }
         public int Count { get; private set; }
@@ -115,5 +115,17 @@ namespace GarageApplication
         {
             return GetEnumerator();
         }
+
+
+        //public IEnumerator<T> GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
     }
 }

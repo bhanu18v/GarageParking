@@ -18,7 +18,8 @@ namespace GarageApplication
             RegistrationNumber = registrationNumber;
             Color = color;
             WheelCount = wheelCount;
-        }
+
+        }  
     }
     class Program
     {

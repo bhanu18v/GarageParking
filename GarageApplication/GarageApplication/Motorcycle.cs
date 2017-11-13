@@ -18,6 +18,7 @@ namespace GarageApplication
 
         public override string ToString()
     {
-            return string.Format("Motorcycle:{0}{1}{0}{2} cc", System.Environment.NewLine, base.ToString(), CylinderVolume); }
+            return string.Format("Motorcycle:{0}{1}{0}{2} cc", System.Environment.NewLine, base.ToString(), CylinderVolume);
+        }
     }
 }

@@ -19,8 +19,10 @@ namespace GarageApplication
             WheelCount = wheelCount < 0 ? 0 : wheelCount;
         }
 
-        public virtual string PrintVehicle()
+        public override string ToString()
         {
+          
+        
             var formatted = string.Format("Registration Number: {1}{0}{2}", System.Environment.NewLine, RegistrationNumber, Color);
 
             if (WheelCount > 0)

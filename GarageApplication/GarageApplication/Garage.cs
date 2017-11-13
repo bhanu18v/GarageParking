@@ -63,10 +63,12 @@ namespace GarageApplication
                 printedList += Environment.NewLine + vehicle.ToString() + Environment.NewLine;
 
             return printedList;
+
+
         }
 
         public string ListVehicleTypes()
-        {
+             {
             var types = vehicles
                 .Where(v => v != null)
                 .GroupBy(v => v.GetType().Name)

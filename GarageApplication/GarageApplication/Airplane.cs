@@ -8,23 +8,35 @@ namespace GarageApplication
 {
     public class Airplane:Vehicle
     {
-        private int noOfengines;
-        public int NoOfEngines
+        private int engineCount;
+        public int EngineCount
         {
-            get { return noOfengines; }
-            set { NoOfEngines = value; }
+            get
+            {
+                return engineCount;
+            }
+            set
+            {
+                engineCount = value;
+               
+            }
         }
 
-        public Airplane(string reg, string col, int now, string tof, int noe) : base(reg, col, now, tof)
+        public Airplane(string registrationNumber, string color, int wheelCount, int engineCount)
+            : base(registrationNumber, color, wheelCount)
         {
-            NoOfEngines = noe;
+            EngineCount = engineCount;
         }
 
+        public override string ToString()
+        {
+            var formatted = string.Format("Airplane:{0}{1}{0}", System.Environment.NewLine, base.ToString());
 
-        //public override string PrintVehicle()
-        //{
-        //    return base.PrintVehicle() + "\n The" + GetType().Name + "contains" + NoOfEngines + " Engines ";
-        //}
+            if (EngineCount > 0)
+                formatted += $"{EngineCount} engines";
+
+            return formatted;
+        }
 
 
 

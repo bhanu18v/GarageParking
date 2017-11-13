@@ -9,22 +9,22 @@ namespace GarageApplication
     class Bus:Vehicle
     {
 
-        private int no_Of_Seats;
-        public int No_Of_Seats
+        public int Seats { get; set; }
+
+        public Bus(string registrationPlate, string color,int wheelCount, int numberOfSeats)
+            : base(registrationPlate, color, wheelCount)
         {
-            get { return no_Of_Seats; }
-            set { No_Of_Seats = value; }
+            Seats = numberOfSeats;
         }
 
-        public Bus(string reg, string col, int now, string tof, int nos) : base(reg, col, now, tof)
-        {
-            No_Of_Seats = nos;
-        }
 
-        //public override string PrintVehicle()
-        //{
-        //    return base.PrintVehicle() + "\n The Bus contains" + No_Of_Seats + "seats\n";
-        //}
+        public override string ToString()
+        {
+            var seats = Seats > 1 ? "seats" : "seat";
+            return string.Format("Bus :{0}{1}{2} {3}",
+                "\n",
+                base.ToString(), Seats, seats);
+        }
 
     }
 }
